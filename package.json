@@ -1,0 +1,38 @@
+{
+  "name": "docker-nest-typegoose",
+  "version": "0.0.1",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "nodemon --watch src && tslint-check",
+    "debug": "DEBUG=* yarn start",
+    "start": "nodemon ./src/server.ts",
+    "start:prod": "pm2 start ./dist/server.js",
+    "build": "tsc",
+    "run:prod": "yarn build && yarn tslint && yarn start:prod",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "tslint:check": "npx tslint-config-prettier-check ./tslint.json",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@nestjs/common": "^5.4.1",
+    "@nestjs/core": "^5.4.1",
+    "class-validator": "^0.9.1",
+    "mongoose": "^5.3.15",
+    "nestjs-typegoose": "^5.1.2",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3",
+    "typegoose": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.3.4",
+    "@types/node": "^10.12.12",
+    "nodemon": "^1.18.7",
+    "prettier": "^1.15.3",
+    "ts-node": "^7.0.1",
+    "tslint": "~5.11.0",
+    "tslint-config-prettier": "~1.17.0",
+    "tslint-plugin-prettier": "~2.0.1",
+    "typescript": "~3.2.2"
+  }
+}
