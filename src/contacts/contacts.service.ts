@@ -9,7 +9,7 @@ import { Contact } from './contact.model';
 export class ContactsService {
   constructor(
     @InjectModel(Contact) private readonly contactModel: ModelType<Contact>
-  ) { }
+  ) {}
 
   public async create(createContactDto: Contact): Promise<Contact> {
     const createdContact = new this.contactModel(createContactDto);
