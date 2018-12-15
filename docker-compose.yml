@@ -10,7 +10,7 @@ services:
     depends_on:
     - mongo
   mongo:
-    image: mongo:latest
+    image: mongo:4.1
     ports:
     - "27017:27017"
     networks:
