@@ -10,6 +10,7 @@ COPY package.json .
 COPY yarn.lock .
 COPY ecosystem.config.js .
 COPY tsconfig.json .
+COPY .env.* ./
 
 # Install app dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
