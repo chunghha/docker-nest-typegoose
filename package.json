@@ -17,13 +17,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@nestjs/common": "^6.0.2",
-    "@nestjs/core": "^6.0.2",
-    "@nestjs/platform-express": "~6.0.2",
+    "@nestjs/common": "~6.1.0",
+    "@nestjs/core": "~6.1.0",
+    "@nestjs/platform-express": "~6.1.0",
     "@nestjs/swagger": "~3.0.2",
     "class-validator": "^0.9.1",
     "dotenv": "^7.0.0",
-    "mongoose": "^5.4.19",
+    "mongoose": "^5.5.1",
     "nestjs-typegoose": "^5.1.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.4.0",
@@ -32,15 +32,15 @@
   },
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.9",
-    "@types/dotenv": "^6.1.0",
-    "@types/mongoose": "^5.3.23",
-    "@types/node": "^10.14.2",
-    "nodemon": "^1.18.10",
-    "prettier": "^1.16.4",
+    "@types/dotenv": "^6.1.1",
+    "@types/mongoose": "^5.3.26",
+    "@types/node": "^10.14.4",
+    "nodemon": "^1.18.11",
+    "prettier": "^1.17.0",
     "ts-node": "^8.0.3",
-    "tslint": "~5.14.0",
+    "tslint": "~5.15.0",
     "tslint-config-prettier": "~1.18.0",
     "tslint-plugin-prettier": "~2.0.1",
-    "typescript": "~3.3.4000"
+    "typescript": "~3.4.3"
   }
 }
