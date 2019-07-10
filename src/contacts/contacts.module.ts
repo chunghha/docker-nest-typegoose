@@ -8,7 +8,7 @@ import { ContactsService } from './contacts.service';
 
 @Module({
   controllers: [ContactsController],
-  imports: [TypegooseModule.forFeature(Contact)],
+  imports: [TypegooseModule.forFeature([Contact])],
   providers: [ContactsService]
 })
 export class ContactsModule {}
