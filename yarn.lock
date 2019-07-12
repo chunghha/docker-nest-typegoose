@@ -94,19 +94,19 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nestjs/common@~6.5.0":
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.5.0.tgz#05fdd4da769dce2f970abc3a11d2d823e85e1ce4"
-  integrity sha512-i2m2e/AXFGq0l7IPtwv2SrDHbxRPe4ZsuG54B/V68escu1LMpMZcTCjfANTamRvnNR258QQcSVNBMTUX1nTV8w==
+"@nestjs/common@~6.5.2":
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.5.2.tgz#a864a62f859a7662f658febc0e9a115eee00739e"
+  integrity sha512-vkB6JLPPckjS35usLMV3Q6vljkgzhN3jgQ+U1VY6cKriyjnkIcUKo37tNQSPYkaAGe1pOLK4IkmwMTSyhNieyg==
   dependencies:
     axios "0.19.0"
     cli-color "1.4.0"
     uuid "3.3.2"
 
-"@nestjs/core@~6.5.0":
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.5.0.tgz#c2b390e585ca579f17237918d7e6f857cbe6c459"
-  integrity sha512-VtHeqX7chP1HHPJ1eogKbtSSYIm4LXE4balQEiId2moFm9fdn2ekctBthhhfVwtQqs8vEMvgRixMxZrCJTSuoQ==
+"@nestjs/core@~6.5.2":
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.5.2.tgz#42ff3ce1b1a51055bbc4732e60d1029fb8ca487d"
+  integrity sha512-LTRCl4oaFP43DcPHbvVO0sH72M+N0uGwnqc0UxhJ7ovJMX6xhahSot1QTkBb56V2AIfmzaRbGpuA4qhIgBXj6A==
   dependencies:
     "@nuxtjs/opencollective" "0.2.2"
     fast-safe-stringify "2.0.6"
@@ -115,10 +115,10 @@
     optional "0.1.4"
     uuid "3.3.2"
 
-"@nestjs/platform-express@~6.5.0":
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.5.0.tgz#3e859fe46a288277fb2a81c9323b86ea2c65544c"
-  integrity sha512-EpesaPXSZAoj8G5r+Cr1oF1fkzucg73V3FTyDfgdMhLrdAMEBGzCQFQeigfssDqwDGsB4Z630fs7et9u+y7Q4A==
+"@nestjs/platform-express@~6.5.2":
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.5.2.tgz#78c8d948fe52a389afd6e9d78a9c02cd4da9de8e"
+  integrity sha512-F/y+P7IkT6xALfPZO/MwiHHVl/3rYjkD4IvNa21d4QVLnBrp3CcQztysLTWtqmHMA8T5tUeoAZSDU9MnhMlK2w==
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
@@ -3919,10 +3919,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typegoose@^5.7.2:
-  version "5.7.2"
-  resolved "https://registry.yarnpkg.com/typegoose/-/typegoose-5.7.2.tgz#b4ed10a401d137de0a50ab2d7a0be08943f055dd"
-  integrity sha512-Ec/J4lBJuK71SOlJy1Zd9FVT88lfy3eSTe+S6kzLEH18eiX5YwiTvq/fFFh3L0RqfN5zJQxBx8XfRdYAIZceeA==
+typegoose@^5.8.0:
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/typegoose/-/typegoose-5.8.0.tgz#28721dabf53999097b20800fd9f38ae182b64d78"
+  integrity sha512-I3r7mb7Ikm7x0k1PyizXdl68iINI/i8psQCbIdVyID/4yZ5zbWn3bKRuRUDi47jLmEdnVDi7Pg2NQNrS7dS/gA==
   dependencies:
     reflect-metadata "^0.1.13"
 
