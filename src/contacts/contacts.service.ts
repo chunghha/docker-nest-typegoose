@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
+import { ModelType } from '@hasezoey/typegoose';
 import { InjectModel } from 'nestjs-typegoose';
-import { ModelType } from 'typegoose';
 
 import { Contact } from './contact.model';
 
