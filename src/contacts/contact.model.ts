@@ -1,10 +1,10 @@
 import { ApiModelProperty } from '@nestjs/swagger';
 
-import { index, prop, Typegoose } from '@hasezoey/typegoose';
+import { index, prop } from '@typegoose/typegoose';
 import { IsString } from 'class-validator';
 
 @index({ email: 1 }, { unique: true })
-export class Contact extends Typegoose {
+export class Contact {
   @ApiModelProperty({ required: true, example: 'JJ Joyce' })
   @IsString()
   @prop({ required: true })

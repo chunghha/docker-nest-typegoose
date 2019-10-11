@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { ModelType } from '@hasezoey/typegoose';
+import { ReturnModelType } from '@typegoose/typegoose';
 import { InjectModel } from 'nestjs-typegoose';
 
 import { Contact } from './contact.model';
@@ -8,7 +8,8 @@ import { Contact } from './contact.model';
 @Injectable()
 export class ContactsService {
   constructor(
-    @InjectModel(Contact) private readonly contactModel: ModelType<Contact>
+    @InjectModel(Contact)
+    private readonly contactModel: ReturnModelType<typeof Contact>
   ) {}
 
   public async create(createContactDto: Contact): Promise<Contact> {
