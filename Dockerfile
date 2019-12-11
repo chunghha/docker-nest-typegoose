@@ -12,9 +12,9 @@ COPY yarn.lock .
 RUN yarn
 
 # Build the API
-COPY src src/
 COPY tsconfig.json .
-COPY .env.* ./
+COPY env env/
+COPY src src/
 RUN yarn build
 
 # Expose the API port

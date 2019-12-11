@@ -12,17 +12,17 @@ export class ContactsService {
     private readonly contactModel: ReturnModelType<typeof Contact>
   ) {}
 
-  public async create(createContactDto: Contact): Promise<Contact> {
+  async create(createContactDto: Contact): Promise<Contact> {
     const createdContact = new this.contactModel(createContactDto);
 
     return createdContact.save();
   }
 
-  public async findAll(): Promise<Contact[] | null> {
+  async findAll(): Promise<Contact[] | null> {
     return this.contactModel.find().exec();
   }
 
-  public async getContact(email: string): Promise<Contact | null> {
+  async getContact(email: string): Promise<Contact | null> {
     return this.contactModel.findOne({ email }).exec();
   }
 }

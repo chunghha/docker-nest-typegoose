@@ -1,6 +1,6 @@
 {
   "name": "docker-nest-typegoose",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "src/server.ts",
   "scripts": {
     "dev": "nodemon --watch src && tslint-check",
@@ -17,30 +17,32 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@nestjs/common": "~6.8.3",
-    "@nestjs/core": "~6.8.3",
-    "@nestjs/platform-express": "~6.8.3",
-    "@nestjs/swagger": "~3.1.0",
-    "@typegoose/typegoose": "^6.0.1",
-    "class-validator": "^0.10.1",
-    "dotenv": "^8.1.0",
-    "mongoose": "^5.7.4",
+    "@hapi/joi": "^16.1.8",
+    "@nestjs/common": "~6.10.10",
+    "@nestjs/core": "~6.10.10",
+    "@nestjs/platform-express": "~6.10.10",
+    "@nestjs/swagger": "~4.0.9",
+    "@typegoose/typegoose": "^6.1.7",
+    "class-validator": "^0.11.0",
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.8.0",
     "nestjs-typegoose": "^7.0.0",
+    "pjson": "^1.0.9",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.3",
     "swagger-ui-express": "^4.1.2"
   },
   "devDependencies": {
-    "@compodoc/compodoc": "^1.1.10",
-    "@types/dotenv": "^6.1.1",
-    "@types/mongoose": "^5.5.20",
-    "@types/node": "^12.7.12",
-    "nodemon": "^1.19.3",
-    "prettier": "~1.18.2",
-    "ts-node": "^8.4.1",
-    "tslint": "~5.20.0",
+    "@compodoc/compodoc": "^1.1.11",
+    "@types/dotenv": "^8.2.0",
+    "@types/mongoose": "^5.5.34",
+    "@types/node": "^12.12.17",
+    "nodemon": "^2.0.1",
+    "prettier": "~1.19.1",
+    "ts-node": "^8.5.4",
+    "tslint": "~5.20.1",
     "tslint-config-prettier": "~1.18.0",
     "tslint-plugin-prettier": "~2.0.1",
-    "typescript": "~3.6.4"
+    "typescript": "~3.7.3"
   }
 }

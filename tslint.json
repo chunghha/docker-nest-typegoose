@@ -1,22 +1,31 @@
 {
-    "extends": [
-        "tslint:latest",
-        "tslint-config-prettier"
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
+  "plugins": [
+    "tslint-plugin-prettier"
+  ],
+  "rulesDirectory": [
+    "tslint-plugin-prettier"
+  ],
+  "rules": {
+    "class-name": true,
+    "member-access": false,
+    "no-var-keyword": true,
+    "no-internal-module": true,
+    "no-null-keyword": true,
+    "prefer-const": true,
+    "interface-name": [
+      true,
+      "never-prefix"
     ],
-    "plugins": [
-        "tslint-plugin-prettier"
+    "jsdoc-format": true,
+    "no-console": [
+      false,
+      "log"
     ],
-    "rulesDirectory": [
-        "tslint-plugin-prettier"
-    ],
-    "rules": {
-        "class-name": true,
-        "no-var-keyword": true,
-        "no-internal-module": true,
-        "no-null-keyword": true,
-        "prefer-const": true,
-        "jsdoc-format": true,
-        "no-console": [false, "log"],
-        "no-any": false
-    }
+    "no-any": false
+  }
 }

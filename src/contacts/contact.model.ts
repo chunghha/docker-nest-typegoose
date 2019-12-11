@@ -1,27 +1,29 @@
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 import { index, prop } from '@typegoose/typegoose';
-import { IsString } from 'class-validator';
+import { IsEmail, IsOptional, IsString } from 'class-validator';
 
 @index({ email: 1 }, { unique: true })
 export class Contact {
-  @ApiModelProperty({ required: true, example: 'JJ Joyce' })
   @IsString()
   @prop({ required: true })
-  public name: string;
+  @ApiProperty({ required: true, example: 'JJ Joyce' })
+  readonly name: string;
 
-  @ApiModelProperty({ required: false, example: 'work' })
+  @IsOptional()
   @IsString()
   @prop({ required: false })
-  public group: string;
+  @ApiProperty({ required: false, example: 'work' })
+  readonly group: string;
 
-  @ApiModelProperty({ required: true, example: 'jj.joyce@mail.com' })
-  @IsString()
+  @IsEmail()
   @prop({ required: true })
-  public email: string;
+  @ApiProperty({ required: true, example: 'jj.joyce@mail.com' })
+  readonly email: string;
 
-  @ApiModelProperty({ required: false, example: '555-555-5555' })
+  @IsOptional()
   @IsString()
   @prop({ required: false })
-  public phone: string;
+  @ApiProperty({ required: false, example: '555-555-5555' })
+  readonly phone: string;
 }

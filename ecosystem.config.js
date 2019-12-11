@@ -9,10 +9,19 @@ module.exports = {
     watch: false,
     max_memory_restart: '1G',
     env: {
+      NODE_ENV: 'local'
+    },
+    env_dev: {
       NODE_ENV: 'dev'
+    },
+    env_local: {
+      NODE_ENV: 'local'
     },
     env_production: {
       NODE_ENV: 'prod'
+    },
+    env_qa: {
+      NODE_ENV: 'qa'
     }
   }]
 };

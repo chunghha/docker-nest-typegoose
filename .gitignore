@@ -1,4 +1,5 @@
 node_modules
 dist
 documentation
-.env.*
+env/qa.env
+env/prod.env
