@@ -3,17 +3,23 @@
   "version": "0.2.0",
   "main": "src/server.ts",
   "scripts": {
-    "dev": "nodemon --watch src && tslint-check",
-    "debug": "DEBUG=* yarn start",
-    "start": "nodemon ./src/server.ts",
-    "start:prod": "NODE_ENV=prod pm2 start ./dist/server.js",
-    "build": "tsc",
-    "run:prod": "yarn build && yarn tslint && yarn start:prod",
-    "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "tslint:check": "npx tslint-config-prettier-check ./tslint.json",
+    "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
-    "doc": "yarn compodoc --theme material -p ./tsconfig.json",
-    "doc:serve": "yarn compodoc -s"
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "prestart:prod": "rimraf dist && yarn build",
+    "start:prod": "cross-env-shell NODE_ENV=prod pm2 start ecosystem.config.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "doc": "npx compodoc --theme material -p ./tsconfig.json",
+    "doc:serve": "npx compodoc -s",
+    "commitmsg": "commitlint -e",
+    "release": "standard-version --no-verify"
   },
   "license": "MIT",
   "dependencies": {
@@ -26,9 +32,11 @@
     "@nestjs/platform-express": "~6.10.10",
     "@nestjs/swagger": "~4.0.9",
     "@typegoose/typegoose": "^6.1.7",
+    "class-transformer": "^0.2.3",
     "class-validator": "^0.11.0",
     "dotenv": "^8.2.0",
     "helmet": "^3.21.2",
+    "lodash": "^4.17.15",
     "mongoose": "^5.8.0",
     "nest-router": "^1.0.9",
     "nest-winston": "^1.3.1",
@@ -42,18 +50,54 @@
     "winston-daily-rotate-file": "^4.3.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-angular": "^8.2.0",
     "@compodoc/compodoc": "^1.1.11",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.2",
     "@types/hapi__joi": "^16.0.4",
+    "@types/jest": "^24.0.23",
+    "@types/lodash": "^4.14.149",
     "@types/mongoose": "^5.5.34",
     "@types/node": "^12.12.17",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
     "nodemon": "^2.0.1",
     "prettier": "~1.19.1",
+    "standard-version": "^7.0.1",
+    "ts-jest": "^24.2.0",
+    "ts-loader": "^6.2.1",
     "ts-node": "^8.5.4",
+    "tsconfig-paths": "^3.9.0",
     "tslint": "~5.20.1",
     "tslint-config-prettier": "~1.18.0",
     "tslint-plugin-prettier": "~2.0.1",
     "typescript": "~3.7.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

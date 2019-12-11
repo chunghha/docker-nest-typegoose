@@ -13,6 +13,7 @@ RUN yarn
 
 # Build the API
 COPY tsconfig.json .
+COPY tsconfig.build.json .
 COPY env env/
 COPY src src/
 RUN yarn build
