@@ -21,7 +21,7 @@ class Server {
       .setDescription('Contacts REST API with MongoDB backend')
       .setVersion(version)
       .addServer(`http://localhost:${port}`)
-      .addTag('contacts')
+      .addTag('api')
       .build();
     const document = SwaggerModule.createDocument(app, options);
     SwaggerModule.setup('/api/swagger', app, document);
