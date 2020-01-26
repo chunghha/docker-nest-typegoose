@@ -4,3 +4,4 @@ documentation
 env/qa.env
 env/prod.env
 log
+yarn-error.log
