@@ -12,12 +12,12 @@ const DB_URI = new ConfigService(
   `./env/${process.env.NODE_ENV ? process.env.NODE_ENV : 'local'}.env`
 ).getDbUri();
 
-/* tslint:disable */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const winston = require('winston');
 winston.transports.DailyRotateFile = require('winston-daily-rotate-file');
 const fs = require('fs');
 const logDir = 'log';
-/* tslint:enable */
+/* eslint-enable @typescript-eslint/no-var-requires */
 
 if (!fs.existsSync(logDir)) {
   fs.mkdirSync(logDir);

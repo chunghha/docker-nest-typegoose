@@ -6,6 +6,7 @@ import { IHelmetConfiguration } from 'helmet';
 import { ResponseTimeOptions } from 'response-time';
 
 @Module({
+  /* eslint-disable-next-line @typescript-eslint/no-use-before-define */
   exports: [SharedModule]
 })
 export class SharedModule {
