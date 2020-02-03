@@ -8,4 +8,4 @@ if [ "$1" = "nest" ]; then
     docker build --tag=docker-nest-typegoose_nest -f ./Dockerfile .
 fi
 
-docker-compose up -d nest
+API_PORT=3100 docker-compose up -d nest

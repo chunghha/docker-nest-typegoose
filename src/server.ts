@@ -11,7 +11,7 @@ class Server {
     const app = await NestFactory.create(ApplicationModule);
     app.useGlobalPipes(new ValidationPipe());
 
-    const API_PORT = 3100;
+    const API_PORT = process.env.API_PORT;
     await this.setSwaggerModule(app, API_PORT);
     await app.listen(API_PORT);
   }

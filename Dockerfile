@@ -1,5 +1,8 @@
 FROM keymetrics/pm2:latest-alpine
 
+# set api port from env var
+ENV API_PORT $API_PORT
+
 # Create own api folder
 RUN mkdir -p /api
 WORKDIR /api
@@ -19,7 +22,7 @@ COPY src src/
 RUN yarn build
 
 # Expose the API port
-EXPOSE 3100
+EXPOSE $API_PORT
 
 # Run the API with pm2
 COPY ecosystem.config.js .
