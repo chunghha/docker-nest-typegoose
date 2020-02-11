@@ -1,4 +1,8 @@
 import { NestFactory } from '@nestjs/core';
+import {
+  FastifyAdapter,
+  NestFastifyApplication
+} from '@nestjs/platform-fastify';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import * as pj from 'pjson';
@@ -8,12 +12,15 @@ import { ValidationPipe } from './shared/pipes/validation.pipe';
 
 class Server {
   async bootstrap(): Promise<void> {
-    const app = await NestFactory.create(ApplicationModule);
+    const app = await NestFactory.create<NestFastifyApplication>(
+      ApplicationModule,
+      new FastifyAdapter()
+    );
     app.useGlobalPipes(new ValidationPipe());
 
     const API_PORT = process.env.API_PORT;
     await this.setSwaggerModule(app, API_PORT);
-    await app.listen(API_PORT);
+    await app.listen(+API_PORT, '0.0.0.0');
   }
 
   private async setSwaggerModule(app, port): Promise<void> {

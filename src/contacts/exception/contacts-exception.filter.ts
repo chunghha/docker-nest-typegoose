@@ -3,8 +3,12 @@ import {
   Catch,
   ExceptionFilter,
   HttpException,
-  HttpStatus
+  HttpStatus,
+  Inject
 } from '@nestjs/common';
+import { HttpAdapterHost } from '@nestjs/core';
+
+import { Logger } from 'winston';
 
 import {
   ContactsCreateException,
@@ -13,10 +17,16 @@ import {
 
 @Catch()
 export class ContactsExceptionFilter implements ExceptionFilter {
+  constructor(
+    @Inject('winston') private readonly logger: Logger,
+    private readonly httpAdapterHost: HttpAdapterHost
+  ) {}
+
   catch(exception: HttpException, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
     const request = ctx.getRequest();
+    const adapter = this.httpAdapterHost.httpAdapter;
     const code =
       exception instanceof HttpException
         ? exception.getStatus()
@@ -31,7 +41,11 @@ export class ContactsExceptionFilter implements ExceptionFilter {
       timestamp: new Date().toISOString()
     };
 
-    response.status(code).json(this.dispatchContactsException(error, request));
+    const replyError = this.dispatchContactsException(error, request);
+
+    this.logger.error(replyError);
+
+    adapter.reply(response, replyError, code);
   }
 
   private dispatchContactsException(error: ContactsException, request: any) {

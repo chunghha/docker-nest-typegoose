@@ -9,6 +9,7 @@ import {
   Res,
   UseFilters
 } from '@nestjs/common';
+import { HttpAdapterHost } from '@nestjs/core';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 import { Logger } from 'winston';
@@ -19,12 +20,17 @@ import { ContactsExceptionFilter } from './exception/contacts-exception.filter';
 
 @ApiTags('api')
 @Controller()
-@UseFilters(new ContactsExceptionFilter())
+@UseFilters(ContactsExceptionFilter)
 export class ContactsController {
+  private readonly adapter;
+
   constructor(
     @Inject('winston') private readonly logger: Logger,
+    private readonly httpAdapterHost: HttpAdapterHost,
     private readonly contactsService: ContactsService
-  ) {}
+  ) {
+    this.adapter = this.httpAdapterHost.httpAdapter;
+  }
 
   @ApiOperation({ summary: 'Return all contacts' })
   @ApiResponse({ status: 200, description: 'Successful response' })
@@ -37,7 +43,7 @@ export class ContactsController {
       this.logger.info('FindAll responded with contacts.');
     }
 
-    return response.status(HttpStatus.OK).json(res);
+    return this.adapter.reply(response, res, HttpStatus.OK);
   }
 
   @ApiOperation({ summary: 'Return a contact per email requested' })
@@ -53,7 +59,7 @@ export class ContactsController {
     const res = await this.contactsService.getContact(email);
     this.logger.info(res);
 
-    return response.status(HttpStatus.OK).json(res);
+    return this.adapter.reply(response, res, HttpStatus.OK);
   }
 
   @ApiOperation({ summary: 'Create a contact' })
@@ -68,6 +74,6 @@ export class ContactsController {
     const res = await this.contactsService.create(contact);
     this.logger.info(res);
 
-    return response.status(HttpStatus.CREATED).json(res);
+    return this.adapter.reply(response, res, HttpStatus.OK);
   }
 }
