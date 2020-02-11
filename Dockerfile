@@ -1,5 +1,6 @@
-FROM keymetrics/pm2:latest-alpine
+ARG NODE_VERSION=12
 
+FROM keymetrics/pm2:${NODE_VERSION}-alpine
 # set api port from env var
 ENV API_PORT $API_PORT
 
