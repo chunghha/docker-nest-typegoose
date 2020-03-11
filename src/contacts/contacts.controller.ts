@@ -48,7 +48,12 @@ export class ContactsController {
 
   @ApiOperation({ summary: 'Return a contact per email requested' })
   @ApiResponse({ status: 200, description: 'Successful response' })
-  @ApiParam({ name: 'email', required: true, type: String })
+  @ApiParam({
+    name: 'email',
+    required: true,
+    type: String,
+    example: 'jane.kim@gmail.com'
+  })
   @Get('getContact/:email')
   protected async getContact(
     @Param('email') email,
