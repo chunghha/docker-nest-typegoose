@@ -67,7 +67,7 @@ export class ContactsExceptionFilter implements ExceptionFilter {
     switch (code) {
       case HttpStatus.BAD_REQUEST:
       case HttpStatus.FORBIDDEN:
-        return exception.message.message;
+        return exception.message;
       default:
         return 'Internal Server Error';
     }
