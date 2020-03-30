@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger';
-
 import { index, prop } from '@typegoose/typegoose';
 import { IsEmail, IsOptional, IsString } from 'class-validator';
 

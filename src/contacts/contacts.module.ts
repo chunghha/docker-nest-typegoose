@@ -1,8 +1,7 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-
 import { CorsMiddleware } from '@nest-middlewares/cors';
 import { HelmetMiddleware } from '@nest-middlewares/helmet';
 import { ResponseTimeMiddleware } from '@nest-middlewares/response-time';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypegooseModule } from 'nestjs-typegoose';
 
 import { SharedModule } from '../shared/shared.module';

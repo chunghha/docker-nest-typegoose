@@ -11,7 +11,6 @@ import {
 } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
-
 import { Logger } from 'winston';
 
 import { Contact } from './contact.model';

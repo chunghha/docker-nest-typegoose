@@ -4,7 +4,6 @@ import {
   NestFastifyApplication
 } from '@nestjs/platform-fastify';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-
 import * as pj from 'pjson';
 
 import { ApplicationModule } from './app.module';

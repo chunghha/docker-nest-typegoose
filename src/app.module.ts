@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-
 import { RouterModule } from 'nest-router';
 import { TypegooseModule } from 'nestjs-typegoose';
 
