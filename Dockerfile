@@ -15,7 +15,6 @@ WORKDIR /api
 
 # Install the dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
-RUN npm i -g yarn
 COPY package.json .
 COPY yarn.lock .
 RUN yarn
