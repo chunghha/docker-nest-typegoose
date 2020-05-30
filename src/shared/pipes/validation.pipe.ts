@@ -11,7 +11,10 @@ import * as _ from 'lodash';
 
 @Injectable()
 export class ValidationPipe implements PipeTransform {
-  async transform(value: any, metadata: ArgumentMetadata) {
+  async transform(
+    value: unknown,
+    metadata: ArgumentMetadata
+  ): Promise<unknown> {
     if (value instanceof Object && this.isEmpty(value)) {
       throw new HttpException(
         'Validation failed: No body submitted',

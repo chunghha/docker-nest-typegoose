@@ -15,7 +15,7 @@ import { ContactsService } from './contacts.service';
   providers: [ContactsService]
 })
 export class ContactsModule implements NestModule {
-  public configure(consumer: MiddlewareConsumer) {
+  public configure(consumer: MiddlewareConsumer): void {
     consumer
       .apply(CorsMiddleware, HelmetMiddleware, ResponseTimeMiddleware)
       .forRoutes('api/contacts');

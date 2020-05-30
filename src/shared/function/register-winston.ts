@@ -1,3 +1,4 @@
+import { DynamicModule } from '@nestjs/common';
 import { WinstonModule } from 'nest-winston';
 
 /* eslint-disable @typescript-eslint/no-var-requires */
@@ -17,7 +18,7 @@ const dailyRotateFileTransport = new winston.transports.DailyRotateFile({
   maxFiles: '7d'
 });
 
-export function registerWinston() {
+export function registerWinston(): DynamicModule {
   return WinstonModule.forRootAsync({
     inject: [],
     useFactory: () => ({

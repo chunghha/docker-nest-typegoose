@@ -21,7 +21,7 @@ export class ContactsExceptionFilter implements ExceptionFilter {
     private readonly httpAdapterHost: HttpAdapterHost
   ) {}
 
-  catch(exception: HttpException, host: ArgumentsHost) {
+  catch(exception: HttpException, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
     const request = ctx.getRequest();
