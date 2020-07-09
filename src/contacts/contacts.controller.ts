@@ -55,9 +55,9 @@ export class ContactsController {
     example: 'jane.kim@gmail.com'
   })
   @Get('getContact/:email')
-  /* eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types */
   protected async getContact(
     @Param('email') email: string,
+    /* eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types */
     @Res() response
   ): Promise<Contact | null> {
     this.logger.info(`${email} requested to get a contact.`);
@@ -71,9 +71,9 @@ export class ContactsController {
   @ApiOperation({ summary: 'Create a contact' })
   @ApiResponse({ status: 201, description: 'Successful response' })
   @Post('create')
-  /* eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types */
   protected async create(
     @Body() contact: Contact,
+    /* eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types */
     @Res() response
   ): Promise<Contact> {
     this.logger.info(`${contact.email} requested to be created.`);

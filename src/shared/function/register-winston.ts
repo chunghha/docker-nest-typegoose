@@ -26,13 +26,15 @@ export function registerWinston(): DynamicModule {
         winston.format.timestamp({
           format: 'MM/DD/YYYY HH:mm:ss.SSS'
         }),
-        winston.format.json()
+        winston.format.json(),
+        winston.format.splat()
       ),
       level: 'info',
       transports: [
         new winston.transports.Console({ level: 'debug' }),
         dailyRotateFileTransport
-      ]
+      ],
+      exitOnError: false
     })
   });
 }
