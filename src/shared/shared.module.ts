@@ -1,6 +1,6 @@
 import { HelmetMiddleware } from '@nest-middlewares/helmet';
 import { ResponseTimeMiddleware } from '@nest-middlewares/response-time';
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { IHelmetConfiguration } from 'helmet';
 import { ResponseTimeOptions } from 'response-time';
 
@@ -9,7 +9,8 @@ import { ResponseTimeOptions } from 'response-time';
   exports: [SharedModule]
 })
 export class SharedModule {
-  public configure(): void {
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  public configure(consumer: MiddlewareConsumer): void {
     HelmetMiddleware.configure(this.getHelmetConfiguration());
     ResponseTimeMiddleware.configure(this.getResponseTimeOptions());
   }

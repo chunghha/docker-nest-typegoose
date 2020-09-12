@@ -18,6 +18,6 @@ export class ContactsModule implements NestModule {
   public configure(consumer: MiddlewareConsumer): void {
     consumer
       .apply(CorsMiddleware, HelmetMiddleware, ResponseTimeMiddleware)
-      .forRoutes('api/contacts');
+      .forRoutes('api');
   }
 }

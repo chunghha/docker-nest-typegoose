@@ -1,8 +1,5 @@
+import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import {
-  FastifyAdapter,
-  NestFastifyApplication
-} from '@nestjs/platform-fastify';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as pj from 'pjson';
 
@@ -11,10 +8,7 @@ import { ValidationPipe } from './shared/pipes/validation.pipe';
 
 class Server {
   async bootstrap(): Promise<void> {
-    const app = await NestFactory.create<NestFastifyApplication>(
-      ApplicationModule,
-      new FastifyAdapter()
-    );
+    const app: INestApplication = await NestFactory.create(ApplicationModule);
     app.useGlobalPipes(new ValidationPipe());
 
     const API_PORT = process.env.API_PORT;
