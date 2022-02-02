@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 import { RouterModule } from 'nest-router';
-import { TypegooseModule } from 'nestjs-typegoose';
 
 import { ContactsModule } from './contacts/contacts.module';
 import { routes } from './routes';
@@ -16,9 +16,7 @@ const DB_URI = new ConfigService(
     registerWinston(),
     ContactsModule,
     RouterModule.forRoutes(routes),
-    TypegooseModule.forRoot(DB_URI, {
-      useNewUrlParser: true
-    })
+    MongooseModule.forRoot(DB_URI)
   ]
 })
 export class ApplicationModule {}

@@ -2,16 +2,19 @@ import { CorsMiddleware } from '@nest-middlewares/cors';
 import { HelmetMiddleware } from '@nest-middlewares/helmet';
 import { ResponseTimeMiddleware } from '@nest-middlewares/response-time';
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { TypegooseModule } from 'nestjs-typegoose';
+import { MongooseModule } from '@nestjs/mongoose';
 
 import { SharedModule } from '../shared/shared.module';
-import { Contact } from './contact.model';
+import { Contact, ContactSchema } from './contact.model';
 import { ContactsController } from './contacts.controller';
 import { ContactsService } from './contacts.service';
 
 @Module({
   controllers: [ContactsController],
-  imports: [TypegooseModule.forFeature([Contact]), SharedModule],
+  imports: [
+    MongooseModule.forFeature([{ name: Contact.name, schema: ContactSchema }]),
+    SharedModule
+  ],
   providers: [ContactsService]
 })
 export class ContactsModule implements NestModule {

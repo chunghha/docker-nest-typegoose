@@ -1,4 +1,4 @@
-ARG NODE_VERSION=14
+ARG NODE_VERSION=16
 
 FROM keymetrics/pm2:${NODE_VERSION}-alpine
 # set api port from env var
