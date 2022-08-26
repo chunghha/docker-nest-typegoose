@@ -37,7 +37,7 @@
     "dotenv": "^15.0.0",
     "helmet": "3.23.3",
     "lodash": "^4.17.21",
-    "mongoose": "~6.1.10",
+    "mongoose": "~6.4.6",
     "nest-router": "^1.0.9",
     "nest-winston": "^1.6.2",
     "pjson": "^1.0.9",
